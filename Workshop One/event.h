@@ -1,5 +1,5 @@
-#ifndef EVENT_H
-#define EVENT_H
+#ifndef SDDS_EVENT_H
+#define SDDS_EVENT_H
 extern size_t g_sysClock;
 namespace sdds {
 	class Event {
