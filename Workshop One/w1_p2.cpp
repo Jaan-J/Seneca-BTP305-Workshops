@@ -1,3 +1,9 @@
+/*
+Name: Jaan Javed
+Student Number: 100131192
+I have done all the coding by myself and only copied the code that my professor provided to complete my workshops and assignments.
+*/
+
 // Workshop 1 - Linkage, Storage Duration, Namespaces, and OS Interface
 // Cornel - 2020/01/08
 // Chris - 2021/01/14
@@ -25,7 +31,7 @@ int main(int argc, char* argv[]) {
     //   3: third argument
     //   ...
     for (int i = 0; i < argc; i++) {
-        std::cout << i + 1 << ": " << argv[i] << std::endl;
+        std::cout << "  " << i + 1 << ": " << argv[i] << std::endl;
     }
     std::cout << "--------------------------\n\n";
 
@@ -35,6 +41,7 @@ int main(int argc, char* argv[]) {
     size_t idxArchive = 0;
 
     sdds::Event currentEvent;
+
     const size_t secInDay = 60u * 60u * 24u; // day has 86400 seconds
 
     for (auto day = 1; day < argc; ++day) {
