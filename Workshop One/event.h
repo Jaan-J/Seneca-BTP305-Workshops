@@ -11,7 +11,6 @@ namespace sdds {
 	class Event {
 		char* eventDescription;
 		size_t sinceMidnight;
-
 	public:
 		Event();
 		~Event();
