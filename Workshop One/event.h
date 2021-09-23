@@ -21,7 +21,5 @@ namespace sdds {
 		Event& operator=(const Event&);
 	};
 } // namespace sdds
+//test
 #endif
-
-
-
