@@ -1,5 +1,5 @@
 #ifndef SDDS_TIMED_EVENTS_H
-#define SDDS_TIMED_EVETS_H
+#define SDDS_TIMED_EVENTS_H
 #include<chrono>
 #include <string>
 namespace sdds {
@@ -7,7 +7,7 @@ namespace sdds {
 	class TimedEvents {
 		size_t t_numRecords;
 		std::chrono::steady_clock::time_point startTime;
-		std::chrono::steady_clock::time_point endtime;
+		std::chrono::steady_clock::time_point endTime;
 		struct{
 			std::string s_eventName;
 			std::string s_units = "nanoseconds";
