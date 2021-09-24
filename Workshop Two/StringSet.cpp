@@ -11,13 +11,6 @@ namespace sdds{
   size_t StringSet::numStrings = 0;
   StringSet::StringSet():stringArray(nullptr){}
 
-  StringSet::~StringSet(){
-    if(stringArray != nullptr){
-      delete[] stringArray;
-      stringArray = nullptr;
-    }
-  }
-
   StringSet::StringSet(const char* filename){
     string buffer = {};
     ifstream file;
@@ -41,7 +34,6 @@ namespace sdds{
     return numStrings;
   }
 
-
   string StringSet::operator[](size_t index){
     string temp="";
     if(stringArray[index].empty()){
@@ -55,6 +47,7 @@ namespace sdds{
   StringSet::StringSet(const StringSet& copyCon){
     *this = copyCon;
   }
+
   StringSet& StringSet::operator=(const StringSet& src){
     if(this != &src){
       this->numStrings = src.numStrings;
@@ -65,6 +58,13 @@ namespace sdds{
       }
     }
     return *this;
+  }
+
+  StringSet::~StringSet(){
+    if(stringArray != nullptr){
+      delete[] stringArray;
+      stringArray = nullptr;
+    }
   }
 
 }

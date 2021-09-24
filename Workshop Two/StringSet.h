@@ -13,12 +13,13 @@ namespace sdds {
     static size_t numStrings;
   public:
     StringSet();
-    ~StringSet();
     StringSet(const char*);
     size_t size();
     std::string operator[](size_t);
-    StringSet(const StringSet&);
-    StringSet& operator=(const StringSet &);
+
+    StringSet(const StringSet&); // copy constructor
+    StringSet& operator=(const StringSet &); // overloaded assignment operator
+    ~StringSet();
   };
 
 }
