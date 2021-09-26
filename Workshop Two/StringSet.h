@@ -18,8 +18,11 @@ namespace sdds {
     std::string operator[](size_t);
 
     StringSet(const StringSet&); // copy constructor
-    StringSet& operator=(const StringSet &); // overloaded assignment operator
+    StringSet& operator=(const StringSet &); // copy assignment operator
     ~StringSet();
+
+    StringSet& operator = (StringSet&&); // move assignment operator
+    StringSet(StringSet&&); // move constructor
   };
 
 }

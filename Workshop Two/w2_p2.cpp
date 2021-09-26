@@ -92,9 +92,9 @@ int main(int argc, char** argv)
 
 		a = a;
 
-
 		t.startClock();
 		StringSet d = std::move(a);
+
 		t.stopClock();
 		t.addEvent("  Move Constructor");
 		std::cout << "  Move Constructor  - d.size = "
@@ -104,6 +104,7 @@ int main(int argc, char** argv)
 		std::cout << std::setw(70) << "(a) String  1000: [" << a[999] << "]\n";
 		std::cout << std::setw(70) << "(a) String  last: [" << a[a.size() - 1] << "]\n";
 		std::cout << std::setw(70) << "(a) String last+: [" << a[a.size() + 4] << "]\n\n";
+		
 		std::cout << std::setw(70) << "(d) String     1: [" << d[  0] << "]\n";
 		std::cout << std::setw(70) << "(d) String   100: [" << d[ 99] << "]\n";
 		std::cout << std::setw(70) << "(d) String  1000: [" << d[999] << "]\n";
