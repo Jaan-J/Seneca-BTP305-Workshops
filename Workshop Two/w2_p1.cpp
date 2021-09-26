@@ -43,12 +43,13 @@ int main(int argc, char** argv)
 		t.addEvent("  0-arg Constructor");
 		std::cout << "  0-arg Constructor - a.size = "
 			<< std::setw(7) << a.size() << " strings -> ";
+		
 		std::cout << std::setw(20) << "(a) String     1: [" << a[0] << "]\n";
 		std::cout << std::setw(70) << "(a) String   100: [" << a[99] << "]\n";
 		std::cout << std::setw(70) << "(a) String  1000: [" << a[999] << "]\n";
 		std::cout << std::setw(70) << "(a) String  last: [" << a[a.size() - 1] << "]\n";
 		std::cout << std::setw(70) << "(a) String last+: [" << a[a.size()] << "]\n\n";
-
+		
 
 		t.startClock();
 		StringSet b(argv[1]);

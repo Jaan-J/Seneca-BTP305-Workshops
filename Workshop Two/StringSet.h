@@ -10,7 +10,7 @@ using std::string;
 namespace sdds {
   class StringSet{
     string* stringArray;
-    static size_t numStrings;
+    size_t numStrings;
   public:
     StringSet();
     StringSet(const char*);

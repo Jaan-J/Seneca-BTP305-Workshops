@@ -31,7 +31,7 @@ namespace sdds {
 		os << "Execution Times:" << std::endl;
 		os << "--------------------------" << std::endl;
 		for (size_t i = 0; i < timedEvents.t_numRecords; ++i) {
-			os << std::setw(20) << std::left << timedEvents.records[i].s_eventName <<
+			os << std::setw(20) << std::left << timedEvents.records[i].s_eventName << 
 								   std::setw(12) << std::right << timedEvents.records[i].eventDuration.count() << " " <<
 								   std::right << timedEvents.records[i].s_units << std::endl;
 		}
