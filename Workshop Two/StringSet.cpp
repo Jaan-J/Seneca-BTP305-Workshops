@@ -14,7 +14,7 @@ namespace sdds {
     }
 
     StringSet::StringSet(const char* filename) : numStrings{ 0 } {
-        string buffer = {};
+        string buffer;
         ifstream file;
         file.open(filename);
 
@@ -23,10 +23,7 @@ namespace sdds {
                 ++numStrings;
             }
         }
-
-        file.close();
         stringArray = new string[numStrings];
-        file.open(filename);
         for (size_t i = 0; i < numStrings; i++) {
             getline(file, stringArray[i], ' ');
         }
