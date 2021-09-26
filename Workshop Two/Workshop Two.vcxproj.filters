@@ -15,7 +15,7 @@
     </Filter>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="w2_p1.cpp">
+    <ClCompile Include="w2_p2.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="TimedEvents.cpp">

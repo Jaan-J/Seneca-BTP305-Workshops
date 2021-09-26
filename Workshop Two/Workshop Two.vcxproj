@@ -141,7 +141,7 @@
   <ItemGroup>
     <ClCompile Include="StringSet.cpp" />
     <ClCompile Include="TimedEvents.cpp" />
-    <ClCompile Include="w2_p1.cpp" />
+    <ClCompile Include="w2_p2.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="StringSet.h" />
