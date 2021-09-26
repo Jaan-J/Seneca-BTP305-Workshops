@@ -5,28 +5,26 @@ I have done all the coding by myself and only copied the code that my professor 
 */
 #include "StringSet.h"
 #include <fstream>
+#include <string>
 using std::ifstream;
 using std::getline;
 namespace sdds{
   size_t StringSet::numStrings = 0;
-  StringSet::StringSet():stringArray(nullptr){}
+  StringSet::StringSet() :stringArray{ nullptr } {}
 
   StringSet::StringSet(const char* filename){
     string buffer = {};
     ifstream file;
     file.open(filename);
-
+  
     if(file.is_open()){
       while(getline(file,buffer,' ')){
         ++numStrings;
       }
     }
-
     stringArray = new string[numStrings];
-    int d = 0;
-    string copy = {};
-    while(getline(file,copy,' ')){
-      stringArray[d] = copy;
+    for (size_t i = 0; i < numStrings; i++) {
+        getline(file, stringArray[i], ' ');
     }
   }
 
@@ -35,7 +33,7 @@ namespace sdds{
   }
 
   string StringSet::operator[](size_t index){
-    string temp="";
+    string temp;
     if(stringArray[index].empty()){
       return temp;
     }
@@ -56,6 +54,10 @@ namespace sdds{
       for(size_t i{0}; i < numStrings; i++){
         stringArray[i] = src.stringArray[i];
       }
+    }
+    else {
+        delete[] stringArray;
+        stringArray = nullptr; 
     }
     return *this;
   }
