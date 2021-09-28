@@ -37,7 +37,7 @@ namespace sdds {
 
     string StringSet::operator[](size_t index) {
         string temp;
-        if (numStrings == 0) {
+        if (index >= numStrings || index < 0) {
             return temp;
         }
         else {
@@ -45,10 +45,10 @@ namespace sdds {
         }
     }
 
-    StringSet::StringSet(const StringSet& copyCon){
-      stringArray = nullptr;
-      numStrings = 0;
-      *this = copyCon;
+    StringSet::StringSet(const StringSet& copyCon) {
+        stringArray = nullptr;
+        numStrings = 0;
+        *this = copyCon;
     }
 
     StringSet& StringSet::operator=(const StringSet& src) {
@@ -70,21 +70,21 @@ namespace sdds {
         }
     }
 
-    StringSet& StringSet::operator = (StringSet&& src){
-      if(this != &src){
-        delete[] stringArray;
-        stringArray = src.stringArray;
-        numStrings = src.numStrings;
-        src.stringArray = nullptr;
-        src.numStrings = 0;
-      }
-      return *this;
+    StringSet& StringSet::operator = (StringSet&& src) {
+        if (this != &src) {
+            delete[] stringArray;
+            stringArray = src.stringArray;
+            numStrings = src.numStrings;
+            src.stringArray = nullptr;
+            src.numStrings = 0;
+        }
+        return *this;
     }
 
-    StringSet::StringSet(StringSet&& src):stringArray(nullptr),numStrings(0){
-      numStrings = src.numStrings;
-  		stringArray = src.stringArray;
-      src.numStrings = 0;
-      src.stringArray = nullptr;
+    StringSet::StringSet(StringSet&& src) :stringArray(nullptr), numStrings(0) {
+        numStrings = src.numStrings;
+        stringArray = src.stringArray;
+        src.numStrings = 0;
+        src.stringArray = nullptr;
     }
 }
