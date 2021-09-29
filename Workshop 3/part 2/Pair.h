@@ -18,7 +18,7 @@ namespace sdds{
       return keyType;
     }
 
-    void display(std::ostream& os) const{
+    virtual void display(std::ostream& os) const{
       os << keyType << " : " << valType << std::endl;
     }
   };
