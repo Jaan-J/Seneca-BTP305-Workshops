@@ -2,10 +2,11 @@
 #define SDDS_SET_H
 #include <iostream>
 using std::size_t;
+
 namespace sdds{
-  template <int N, class T>
+  template <unsigned N, class T>
   class Set{
-    size_t numElements = 0;
+    unsigned numElements = 0;
     T m_set[N];
   public:
     size_t size() const{

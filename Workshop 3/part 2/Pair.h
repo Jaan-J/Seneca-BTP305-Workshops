@@ -1,6 +1,8 @@
 #ifndef SDDS_PAIR_H
 #define SDDS_PAIR_H
 #include<ostream>
+using std::ostream;
+
 namespace sdds{
   template <class V, class K>
   class Pair{
@@ -10,6 +12,7 @@ namespace sdds{
     Pair(): valType{0},keyType{0}{}
 
     Pair(const K& key, const V& value):valType (value), keyType(key){}
+
     const V& value() const{
       return valType;
     }
@@ -21,11 +24,11 @@ namespace sdds{
     virtual void display(std::ostream& os) const{
       os << keyType << " : " << valType << std::endl;
     }
+
+    friend ostream& operator<<(ostream& os, const Pair<V, K>& pair){
+      pair.display(os);
+      return os;
+    }
   };
-  template <class K, class V>
-  std::ostream& operator<<(std::ostream& os, const Pair<V, K>& pair){
-    pair.display(os);
-    return os;
-  }
 }
 #endif
