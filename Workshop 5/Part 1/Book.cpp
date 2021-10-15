@@ -27,7 +27,6 @@ namespace sdds{
 
 			pubYear = stod(temp.substr(0, temp.find(",")));
 			temp.erase(0, temp.find(",") + 1);
-      std::cout << temp << std::endl;
 
 			bookSummary = temp.substr(temp.find_first_of("ABCDEFGHIJKLMNOPQRSTUVWXYZ"), temp.find("."));
 		}
