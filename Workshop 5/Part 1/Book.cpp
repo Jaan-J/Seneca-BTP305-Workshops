@@ -5,11 +5,8 @@ namespace sdds{
 
   Book::Book(const std::string& strBook){
     std::string temp = strBook;
-		std::string buffer;
 
-		if (strBook != "")
-		{
-      buffer = temp.substr(0, temp.find(","));
+		if (strBook != ""){
 			bookAuthor = temp.substr(temp.find_first_not_of(' '), temp.find(","));
 			temp.erase(0, (bookAuthor.length() + 1));
       temp.erase(0,temp.find_first_of("ABCDEFGHIJKLMNOPQRSTUVWXYZ"));
