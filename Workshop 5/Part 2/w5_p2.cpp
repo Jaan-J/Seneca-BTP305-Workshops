@@ -1,8 +1,3 @@
-// Workshop 5 - Functions and Error Handling
-// 2020/02 - Cornel
-// 2021/01/19 - Chris
-// 2021/02/12 - Cornel
-
 #include <iostream>
 #include <iomanip>
 #include <fstream>

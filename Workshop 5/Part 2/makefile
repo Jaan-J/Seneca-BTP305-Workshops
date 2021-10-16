@@ -1,6 +1,6 @@
 CXX = g++
 CXXFLAGS = -std=c++17 -g
-OBJECTS = 
+OBJECTS = w5_p2.o SpellChecker.o Movie.o Book.o
 DEPENDS = ${OBJECTS:.o=.d}
 EXEC = output
 
