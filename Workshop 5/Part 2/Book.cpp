@@ -1,4 +1,11 @@
+/*
+Name: Jaan Javed
+Student Number: 100131192
+I have done all the coding by myself and only copied the code that my professor provided to complete my workshops and assignments.
+*/
+
 #include "Book.h"
+
 namespace sdds{
   Book::Book():bookAuthor{""},bookTitle{""}, bookCountry{""},
   pubYear{0}, bookPrice{0},bookSummary{""}{}
@@ -28,7 +35,7 @@ namespace sdds{
 			pubYear = stod(temp.substr(0, temp.find(",")));
 			temp.erase(0, temp.find(",") + 1);
 
-			bookSummary = temp.substr(temp.find_first_of("ABCDEFGHIJKLMNOPQRSTUVWXYZ"), temp.find("."));
+			bookSummary = temp.substr(temp.find_first_of("ABCDEFGHIJKLMNOPQRSTUVWXYZ"), temp.find(".") + 1);
 		}
   }
 

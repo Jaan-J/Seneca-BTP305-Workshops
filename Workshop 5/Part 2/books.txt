@@ -1,4 +1,3 @@
-
 # Author, Title, Country, Price, Year, Summary
 #-----------------------------------------------------------
 Miguel de Cervantes,     Don Quixote,     Spain,    9.99,    1612,   The story follows a Hidalgo, Alonso Quixano, who proves that chivalry will in fact never die.

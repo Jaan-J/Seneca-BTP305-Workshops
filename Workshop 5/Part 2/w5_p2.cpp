@@ -1,3 +1,9 @@
+/*
+Name: Jaan Javed
+Student Number: 100131192
+I have done all the coding by myself and only copied the code that my professor provided to complete my workshops and assignments.
+*/
+
 #include <iostream>
 #include <iomanip>
 #include <fstream>
@@ -54,9 +60,22 @@ int main(int argc, char** argv)
 		//       - lines that start with "#" are considered comments and should be ignored
 		//       - if the file cannot be open, print a message to standard error console and
 		//                exit from application with error code "AppErrors::CannotOpenFile"
-
-
-
+		std::ifstream bookFile(argv[1]);
+		if (!bookFile) {
+			std::cerr << "Error: Cannot open file: " << argv[1] << ".\n";
+			exit(AppErrors::CannotOpenFile);
+		}
+		unsigned int index = 0;
+		std::string buffer;
+		while (bookFile && index < 4) {
+			std::getline(bookFile, buffer);
+			if (bookFile) {
+				if (buffer[0] != '#') {
+					library += Book(buffer);
+					index++;
+				}
+			}
+		}
 
 		/*
 		 ♪ Hey, I just met you,      ♪
@@ -68,7 +87,12 @@ int main(int argc, char** argv)
 		library.setObserver(bookAddedObserver);
 
 		// TODO: add the rest of the books from the file.
-
+		while(bookFile){
+			std::getline(bookFile,buffer);
+			if(bookFile){
+				library +=  Book(buffer);
+			}
+		}
 
 
 	}
@@ -87,7 +111,15 @@ int main(int argc, char** argv)
 	//            and save the new price in the book object
 	//       - if the book was published in UK between 1990 and 1999 (inclussive),
 	//            multiply the price with "gbpToCadRate" and save the new price in the book object
+	auto fixPrices = [=](Book& b){
+		if (b.country().compare("US") == 0){
+			b.price() *= usdToCadRate;
+		}
 
+		if (b.country().compare("UK") == 0 && ( b.year() >= 1990 && b.year() <= 1999)){
+			b.price() *= gbpToCadRate;
+		}
+	};
 
 
 	std::cout << "-----------------------------------------\n";
@@ -100,6 +132,9 @@ int main(int argc, char** argv)
 	//         using the lambda defined above.
 
 
+	for (size_t i = 0; i < 7; ++i) {
+	fixPrices(library[i]);
+}
 
 	std::cout << "-----------------------------------------\n";
 	std::cout << "The library content (updated prices)\n";
@@ -116,10 +151,20 @@ int main(int argc, char** argv)
 		//       - read one line at a time, and pass it to the Movie constructor
 		//       - store each movie read into the array "movies"
 		//       - lines that start with "#" are considered comments and should be ignored
+		int stored = 0;
+				std::ifstream movieFile(argv[2]);
+				std::string buffer;
 
-
-
-
+				while (movieFile) {
+					std::getline(movieFile, buffer);
+					if (movieFile) {
+						if (buffer[0] != '#') {
+							movies[stored] = sdds::Movie(buffer);
+							stored++;
+						}
+					}
+				}
+				movieFile.close();
 	}
 
 	std::cout << "-----------------------------------------\n";
@@ -150,8 +195,16 @@ int main(int argc, char** argv)
 		//       If an exception occurs print a message in the following format
 		//** EXCEPTION: ERROR_MESSAGE<endl>
 		//         where ERROR_MESSAGE is extracted from the exception object.
-		for (auto i = 0u; i < 10; ++i)
-			std::cout << theCollection[i];
+		for (auto i = 0u; i < 10; ++i){
+			try {
+				std::cout << theCollection[i];
+			}
+			catch (std::exception& exc) {
+				std::cout << "** EXCEPTION: " << exc.what() << std::endl;
+				break;
+			}
+
+		}
 
 	std::cout << "-----------------------------------------\n\n";
 
@@ -159,6 +212,7 @@ int main(int argc, char** argv)
 	std::cout << "-----------------------------------------\n";
 	std::cout << "Testing the functor\n";
 	std::cout << "-----------------------------------------\n";
+
 	for (auto i = 3; i < argc; ++i)
 	{
 			// TODO: The following statement can generate generate an exception
@@ -166,20 +220,29 @@ int main(int argc, char** argv)
 			//       If an exception occurs print a message in the following format
 			//** EXCEPTION: ERROR_MESSAGE<endl>
 			//         where ERROR_MESSAGE is extracted from the exception object.
-			SpellChecker sp(argv[i]);
-			for (auto j = 0u; j < library.size(); ++j)
-				library[j].fixSpelling(sp);
-			sp.showStatistics(std::cout);
+			try {
+				SpellChecker sp(argv[i]);
+				for (auto j = 0u; j < library.size(); ++j){
+					library[j].fixSpelling(sp);
+				}
+				sp.showStatistics(std::cout);
 
-			for (auto j = 0u; j < theCollection.size(); ++j)
-				theCollection[j].fixSpelling(sp);
-			sp.showStatistics(std::cout);
+				for (auto j = 0u; j < theCollection.size(); ++j){
+					theCollection[j].fixSpelling(sp);
+				}
+				sp.showStatistics(std::cout);
+			}
+			catch (const char* exc) {
+				std::cout << "** EXCEPTION: " << exc << std::endl;
+			}
 	}
+
 	if (argc < 3) {
 		std::cout << "** Spellchecker is empty\n";
 		std::cout << "-----------------------------------------\n";
 	}
 	std::cout << "\n";
+
 
 	std::cout << "=========================================\n";
 	std::cout << "Wrapping up this workshop\n";

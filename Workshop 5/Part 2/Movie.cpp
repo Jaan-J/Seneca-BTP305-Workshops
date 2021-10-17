@@ -1,6 +1,9 @@
-#include <iostream>
-#include <iomanip>
-#include <string>
+/*
+Name: Jaan Javed
+Student Number: 100131192
+I have done all the coding by myself and only copied the code that my professor provided to complete my workshops and assignments.
+*/
+
 #include "Movie.h"
 
 namespace sdds{
@@ -16,26 +19,26 @@ namespace sdds{
  }
 
  Movie::Movie(const std::string& strMovie){
-   std::string temp = strMovie;
+   std::string buffer = strMovie;
    std::string search;
 
-   for (auto i = 0u; i <= 2; i++){
+   for (size_t i = 0; i <= 2; i++){
      switch (i){
        case 0:
-       search = temp.substr(0, temp.find(','));
+       search = buffer.substr(0, buffer.find(','));
        movieTitle = trim(search);
        break;
        case 1:
-       search = temp.substr(0, temp.find(','));
+       search = buffer.substr(0, buffer.find(','));
        releaseYear = stoi(trim(search));
        break;
        case 2:
-       search = temp.substr(0, temp.find('.') + 1);
+       search = buffer.substr(0, buffer.find('.') + 1);
        movieDesc = trim(search);
        break;
      }
      if (i < 2){
-       temp.erase(0, temp.find(',') + 1);
+       buffer.erase(0, buffer.find(',') + 1);
      }
    }
  }
