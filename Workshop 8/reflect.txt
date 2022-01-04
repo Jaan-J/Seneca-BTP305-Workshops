@@ -1,0 +1,12 @@
+Student name: Jaan Javed
+Student ID: 100131192
+Workshop: 8
+Reflection
+
+	Workshop 8 was quite a breeze compared to the rest of the workshops we've had so far, I learnt how to use a smart pointer, and refined my knowledge on the key differences between a raw pointer and smart pointer. 
+One of the most hardest aspects of learning C++ is that the language has no garbage collector like Java, which makes managing memory very time consuming and meticulous. This is where smart pointers are 
+introduced, smart pointers automatically create objects amd handles memory deletion. This makes smart pointers incredibly resourceful as they delete themseleves, manage your memory, and make your program that much
+more efficient.
+	The difference between the raw and smart pointer in my solution are the ways that the pointers are created. The smart pointer was made in SmartMerge, and uses the unique_ptr notation rather than asterisks to
+create our object. Once we have finishing using our smart pointer, we set it to null and since it is a smart pointer, it deletes its instance and frees memory. To create our raw pointer in RawMerge, we use the normal
+asterisks notation and implement the data needed to create our new object, and end it off by deleting and setting the pointer to null. 
